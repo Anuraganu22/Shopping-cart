@@ -4,12 +4,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 
+type Props = {}
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor:alpha(theme.palette.common.white, 0.15),
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor:alpha(theme.palette.common.white, 0.25),
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
     width: '100%',
@@ -18,7 +19,7 @@ const Search = styled('div')(({ theme }) => ({
       width: 'auto',
     },
   }));
-
+  
   const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
@@ -28,7 +29,7 @@ const Search = styled('div')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'center',
   }));
-
+  
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
@@ -45,12 +46,10 @@ const Search = styled('div')(({ theme }) => ({
       },
     },
   }));
-type Props = {}
-
 const SearchBox = (props: Props) => {
   return (
     <div>
-     <Search>
+       <Search >
             <SearchIconWrapper>
             <SearchIcon />
             </SearchIconWrapper>
@@ -62,5 +61,4 @@ const SearchBox = (props: Props) => {
     </div>
   )
 }
-
 export default SearchBox
