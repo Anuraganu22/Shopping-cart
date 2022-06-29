@@ -39,7 +39,6 @@ const SideBar = (props: Props) => {
     >
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
-    
       </Box>
       <Typography>
         <h3>Filter your Brans...!</h3>
@@ -49,11 +48,10 @@ const SideBar = (props: Props) => {
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <Toolbar />
       <Typography paragraph>
-       <Content/>
+       <Content />
       </Typography>
     </Box>
-  </Box>
-    
+  </Box>  
   )
 }
 export default SideBar
