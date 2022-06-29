@@ -18,7 +18,7 @@ const Grids = (props: Props) => {
             <Grid container spacing={2}>
                 <Grid item xs={4}>
                     <Item>
-                        <Cards />
+                        <Cards  />
                     </Item>
                 </Grid>
             </Grid>

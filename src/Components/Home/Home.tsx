@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext,createContext } from 'react'
 import SideBar from '../SideBar/SideBar'
 import './home.css'
 import MyTypes from '../../Interface/types'
 import axios from 'axios'
 import { Box } from '@mui/material'
+import productContext from '../../Context/productContext'
 type IHomeProps = {}
 
+//Creating a context
 const Home = (props: IHomeProps) => {
  const [mydata, setMyData] =React.useState<any>([])
  const getProduct =async()=>{
@@ -19,9 +21,10 @@ const Home = (props: IHomeProps) => {
 
   return (
     <div className='main'>
- 
-          <SideBar/>
-      
+
+<productContext.Provider value={{ mydata:mydata }}>
+        <SideBar/>
+      </productContext.Provider>  
     </div>
   )         
 }
