@@ -20,10 +20,10 @@ const Content = (props: Props) => {
         },
       }}
     ></Box>
-        <Paper variant="outlined" square elevation={8} >
+        
             <h1>My products..</h1>
             <Grids/>
-        </Paper>
+      
         <Box/>
     </div>
   )

@@ -8,31 +8,34 @@ import { CardActionArea } from '@mui/material';
 import { useContext } from 'react';
 import productContext from '../../Context/productContext';
 
+
 type Props = {}
 const Cards = () => {
-  const product =useContext(productContext);
-  console.log(product,"MY PRODUCTS....")
+  const {mydata}=useContext(productContext);
+  console.log(mydata,"MY PRODUCTS....")
   return (
-    <div>
-  <Card sx={{ maxWidth: 345 }}>
-    {
-      product.map((item:any)=>{
+    <div> {
+      mydata.map((item:any)=>{
+     return <Card >
         <CardActionArea>
-        <CardMedia />
+        <CardMedia
+          component="img"
+          height="140"
+          image={item.pro_image }
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
+            {item.pro_name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
+          {item.pro_Brand}
           </Typography>
         </CardContent>
       </CardActionArea>
-
-      })
-   
-}
     </Card>
+     })
+    }
     </div>
   )
 }
-
 export default Cards
