@@ -15,7 +15,6 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import AppBars from '../AppBar/AppBar';
-import Grids from '../Grid/Grids';
 import Content from '../Content/Content';
 import Multi_filter from '../MulFilter/Multi_filter';
 type Props = {}
@@ -24,34 +23,34 @@ const SideBar = (props: Props) => {
   return (
     // <div className='sidebar'>
     <Box sx={{ display: 'flex' }}>
-    <CssBaseline />
-  <Typography sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-     <AppBars/>
-  </Typography>
-   
-    <Drawer
-      variant="permanent"
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-      }}
-    >
-      <Toolbar />
-      <Box sx={{ overflow: 'auto' }}>
-      </Box>
-      <Typography>
-        <h3>Filter your Brans...!</h3>
-     <Multi_filter/>
-        </Typography> 
-    </Drawer>
-    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-      <Toolbar />
-      <Typography paragraph>
-       <Content />
+      <CssBaseline />
+      <Typography sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <AppBars />
       </Typography>
+
+      <Drawer
+        variant="permanent"
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+        }}
+      >
+        <Toolbar />
+        <Box sx={{ overflow: 'auto' }}>
+        </Box>
+        <Typography>
+          <h3>Filter your Brans...!</h3>
+          <Multi_filter />
+        </Typography>
+      </Drawer>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        <Typography paragraph>
+          <Content />
+        </Typography>
+      </Box>
     </Box>
-  </Box>  
   )
 }
 export default SideBar

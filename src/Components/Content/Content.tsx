@@ -2,29 +2,17 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 //import './Content.css'
-import { Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Cards from '../Cards/Cards';
-import Grids from '../Grid/Grids';
 type Props = {}
 
 const Content = (props: Props) => {
   return (
-    <div className='Box'>
-         <Box
-      sx={{
-        display: 'flex',
-        '& > :not(style)': {
-          m: 1,
-          width:500,
-          height:600,
-        },
-      }}
-    ></Box>
-        
-            <h1>My products..</h1>
-            <Grids/>
-      
-        <Box/>
+    <div>
+<div><h1>MY PRODUCTS..</h1> </div>
+    <Grid container spacing={3}  rowSpacing={3}>
+   <Cards/>
+   </Grid>
     </div>
   )
 }
