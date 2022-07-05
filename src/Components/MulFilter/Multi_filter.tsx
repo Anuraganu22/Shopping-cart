@@ -1,25 +1,24 @@
 import React, { useState } from 'react'
-import MultiSelect from "multiselect-react-dropdown";
+import Select from 'react-select'
+import { useContext } from 'react';
+import productContext from '../../Context/productContext';
+import { isTemplateExpression } from 'typescript';
 type Props = {}
 
 const Multi_filter = (props: Props) => {
-    const [data,SetData] = useState<string>()
-    const options = [
-        { label: "Grapes", value: "grapes" },
-        { label: "Mango ", value: "mango" },
-        { label: "Strawberry ", value: "strawberry" }
-      ];
     
+    const {mydata}=useContext(productContext);
+    const [selctdata,SetSelectData] = useState<string>()
+    console.log(mydata,"@@@@")
+    
+ const option=Array.from(new Set(mydata.map((item:any)=>({...item, label: item.pro_Brand , value: item.pro_Brand_id}))))
+    
+
   return (
     <div>
-       <MultiSelect
-       isObject={false}
-        options={options}
-        onRemove={(e)=>{console.log(e)}}
-       onSelect={(e)=>{console.log(e)}}
-      />
+          <Select options={option} isMulti/>
     </div>
+     
   )
 }
-
 export default Multi_filter

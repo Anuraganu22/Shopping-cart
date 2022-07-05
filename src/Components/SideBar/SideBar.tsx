@@ -16,6 +16,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import AppBars from '../AppBar/AppBar';
 import Content from '../Content/Content';
+import Button from '@mui/material/Button';
 import Multi_filter from '../MulFilter/Multi_filter';
 type Props = {}
 const drawerWidth = 240;
@@ -39,10 +40,17 @@ const SideBar = (props: Props) => {
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
         </Box>
+        <Box>
         <Typography>
           <h3>Filter your Brans...!</h3>
           <Multi_filter />
         </Typography>
+        </Box>
+      <Box>
+      <Typography>
+       
+        </Typography> 
+      </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
