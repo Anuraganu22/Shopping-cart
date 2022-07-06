@@ -10,7 +10,7 @@ type IHomeProps = {}
 //Creating a context
 const Home = (props: IHomeProps) => {
  const [mydata, setMyData] =React.useState<any>([])
- const getProduct =async()=>{
+ const getProduct =async()=>{ 
    const {data} = await axios.get('http://localhost:4000/products ')
    console.log(data,"MY DATA IS ")
    setMyData(data)

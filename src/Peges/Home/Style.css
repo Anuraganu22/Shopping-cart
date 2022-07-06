@@ -1,0 +1,24 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.home-list-wrap,.home-panel-wrap,.home-panelList-wrap{
+    overflow: auto;
+}
+
+
+.home-panelList-wrap{
+    display: flex;
+    flex: 1;
+
+}
+.home-panel-wrap{
+    background-color:aliceblue;
+    flex-basis: 288px;
+
+}
+.home-list-wrap{
+    background-color: darkseagreen;
+    flex: 1;
+}
