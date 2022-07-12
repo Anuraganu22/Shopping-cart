@@ -1,20 +1,17 @@
 import React from 'react'
-// import './AppBar.css'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
-
 import Avatar from '@mui/material/Avatar';
-import SearchBox from '../SearchBar.tsx';
-// import SearchBox from '../Search/Search';
+import SearchBox from '../../Common/SearchBox';
+
 
 type Props = {}
-
-const AppBars = (props: Props) => {
+const TopBar = (props: Props) => {
   return (
+    <div>
     <div className='appbar'>
          <Box>
       <AppBar>
@@ -42,13 +39,13 @@ const AppBars = (props: Props) => {
           >
             MY-SHOE
           </Typography>
-          {/* <SearchBox/> */}
           <SearchBox/>
         </Toolbar>
       </AppBar>
     </Box>
     </div>
+    </div>
   )
 }
 
-export default AppBars
+export default TopBar

@@ -21,7 +21,6 @@ const Home = (props: IHomeProps) => {
 
   return (
     <div className='main'>
-
 <productContext.Provider value={{ mydata:mydata }}>
         <SideBar/>
       </productContext.Provider>  

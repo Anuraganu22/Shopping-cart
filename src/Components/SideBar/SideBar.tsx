@@ -42,13 +42,12 @@ const SideBar = (props: Props) => {
         </Box>
         <Box>
         <Typography>
-          <h3>Filter your Brans...!</h3>
-          <Multi_filter />
+          <h3>Filter your Brans...!</h3> 
         </Typography>
         </Box>
       <Box>
       <Typography>
-       
+      <Multi_filter />
         </Typography> 
       </Box>
       </Drawer>
