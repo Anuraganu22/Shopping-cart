@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import React from 'react'
 import MultiSelect from '../../Common/MultiSelect'
 
@@ -10,6 +11,7 @@ const Filter = (props: Props) => {
          <div className='input-group'>
       <MultiSelect/>
     </div>
+  
     </div>
   )
 }

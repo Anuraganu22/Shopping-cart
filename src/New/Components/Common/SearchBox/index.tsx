@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -47,6 +47,9 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 const SearchBox = (props: Props) => {
+  const [search ,setSearch] = useState<any>()
+  
+
   return (
     <div>
        <Search >
