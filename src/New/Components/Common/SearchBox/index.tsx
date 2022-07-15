@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
+import { Button } from '@mui/material';
+import productContext from '../../../../Context/productContext';
 
 type Props = {}
 const Search = styled('div')(({ theme }) => ({
@@ -47,9 +49,9 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 const SearchBox = (props: Props) => {
-  const [search ,setSearch] = useState<any>()
+  const {productdata,search} = useContext(productContext)
+  const [searchedValue ,setSearchedValue] = useState<any>()
   
-
   return (
     <div>
        <Search >
@@ -57,6 +59,8 @@ const SearchBox = (props: Props) => {
             <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+              value={setSearchedValue}
+              onChange={()=>search(searchedValue)}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />

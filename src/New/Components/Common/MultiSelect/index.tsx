@@ -10,7 +10,7 @@ const MultiSelect = (props: Props) => {
   console.log(filter,"function...")
   const [selectedValue, SetSelectedValue] = useState<any>([])
 
-
+ /* setting filter option to react-select*/
   const filteredOptions = React.useCallback(() => {
     const list: any = [];
     productdata?.forEach((item: any) => {
@@ -21,13 +21,12 @@ const MultiSelect = (props: Props) => {
     return list;
   }, [productdata])
 
-  return (
+  return (           
     <div >
       <Select options={filteredOptions()}
         defaultValue={selectedValue}
         onChange={SetSelectedValue}
         isMulti />
-      {/* <button onClick={()=>filter(["puma","nike"])}>Filter</button> */}
       <div className='button'>
          <Button variant="contained" onClick={()=>filter(selectedValue)}>Filter</Button>
       </div>
