@@ -13,7 +13,7 @@ const MultiSelect = (props: Props) => {
  /* setting filter option to react-select*/
   const filteredOptions = React.useCallback(() => {
     const list: any = [];
-    productdata?.forEach((item: any) => {
+    productdata.forEach((item: any) => {
       if (list.findIndex((el: any) => el.value === item.pro_Brand_id) === -1) {
         list.push({ ...item, label: item.pro_Brand, value: item.pro_Brand_id })
       }
@@ -22,15 +22,18 @@ const MultiSelect = (props: Props) => {
   }, [productdata])
 
   return (           
-    <div >
+    < >
+      <div className='filterlabel'> select your Brand..! </div>
+      <div className='selectfilter'>
       <Select options={filteredOptions()}
-        defaultValue={selectedValue}
         onChange={SetSelectedValue}
         isMulti />
+      </div>
+    
       <div className='button'>
          <Button variant="contained" onClick={()=>filter(selectedValue)}>Filter</Button>
       </div>
-    </div>
+    </>
   )
 }
 export default MultiSelect

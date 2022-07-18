@@ -10,9 +10,8 @@ type Props = {}
 
 const Home = (props: Props) => {
   const [productdata, SetProductdata] = useState<any>([])
-  const [selectedBrand, SetSelectedBrand] = useState<any>([])
-  const [result, SetResult] = useState<any>([])
-
+  const [searchValue, setSearchValue] = useState<any>([])
+  const [searchData, setSearchData] = useState<any>([])
 
   const getList = async () => {
     const { data } = await axios.get('http://localhost:4000/products')
@@ -21,9 +20,11 @@ const Home = (props: Props) => {
   }
   useEffect(() => {
     getList()
+    setSearchData(productdata)
+
   }, [])
 
-   /*  filter   */
+  /*  filter   */
   const filter = (selectedValue: any) => {
     if (selectedValue) {
       const brandfilter = productdata.filter((item: any) => {
@@ -31,8 +32,8 @@ const Home = (props: Props) => {
         const isPresent = selectedValue.some((value: any) => {
           return value.pro_Brand === item.pro_Brand
         })
-        console.log(item, "MY FILTER VALUES")
-        console.log(isPresent, "MY FILTER-2 VALUES")
+        // console.log(item, "MY FILTER VALUES")
+        // console.log(isPresent, "MY FILTER-2 VALUES")
         return isPresent
       })
       SetProductdata(brandfilter)
@@ -40,23 +41,32 @@ const Home = (props: Props) => {
     }
   }
 
-/* Search */
-const search =((searchedValue:any)=>{
-    if(searchedValue){
-      const newSearchResult:any=[];
-      productdata.forEach((item:any)=>{
-        if(item.pro_name.includes(searchedValue))
-        {
-          newSearchResult.push(item)
-        }
+  /* Search */
+  const search = (searchInput: any) => {
+       if(searchInput){
+      const updatedList = productdata.filter((item:any)=>{
+         const searchResult =searchInput.some((value:any)=>{
+          return value.pro_name.include(searchInput)
+         })
+         return searchResult
       })
-      SetProductdata(newSearchResult) 
-    }
-  });
+      SetProductdata(updatedList)
+     }
+
+  }
+
+
+  // if (searchInput) {
+  //   updatedList = updatedList.filter(
+  //     (item) =>
+  //       item.title.toLowerCase().search(searchInput.toLowerCase().trim()) !==
+  //       -1
+  //   );
+  // }
 
   return (
     <div>
-      <productContext.Provider value={{ productdata: productdata, filter ,search}}>
+      <productContext.Provider value={{ productdata: productdata, filter,search }}>
         <div className='home'>
           {/* App Bar */}
           <TopBar />

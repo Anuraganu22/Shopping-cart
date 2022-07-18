@@ -50,8 +50,11 @@ const Search = styled('div')(({ theme }) => ({
   }));
 const SearchBox = (props: Props) => {
   const {productdata,search} = useContext(productContext)
-  const [searchedValue ,setSearchedValue] = useState<any>()
-  
+  const [searchInput, setSearchInput] = useState<any>([])
+  // debugger;
+  const onChange =(e:any)=>{
+    setSearchInput(e.target.value);
+  }
   return (
     <div>
        <Search >
@@ -59,8 +62,7 @@ const SearchBox = (props: Props) => {
             <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              value={setSearchedValue}
-              onChange={()=>search(searchedValue)}
+              // onChange={search(searchInput )}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
