@@ -12,7 +12,7 @@ const Home = (props: Props) => {
   const [productdata, SetProductdata] = useState<any>([])
   const [searchValue, setSearchValue] = useState<any>([])
   const [searchData, setSearchData] = useState<any>([])
-
+  const [selectedPrice,setSelectedPrice]=useState<any>([100,2000])
   const getList = async () => {
     const { data } = await axios.get('http://localhost:4000/products')
     console.log(data, "!!!")
@@ -28,12 +28,9 @@ const Home = (props: Props) => {
   const filter = (selectedValue: any) => {
     if (selectedValue) {
       const brandfilter = productdata.filter((item: any) => {
-        // console.log(item,"@@@!!")
         const isPresent = selectedValue.some((value: any) => {
           return value.pro_Brand === item.pro_Brand
         })
-        // console.log(item, "MY FILTER VALUES")
-        // console.log(isPresent, "MY FILTER-2 VALUES")
         return isPresent
       })
       SetProductdata(brandfilter)
@@ -41,32 +38,37 @@ const Home = (props: Props) => {
     }
   }
 
+/* price filter */
+
+
+const priceFilter =()=>{
+
+const minPrice=[0]
+const maxPrice=[1]
+const pricefilter = productdata.filter((item:any)=>{
+ return item.pro_price >= minPrice && item.pro_price <= maxPrice
+})
+SetProductdata(pricefilter)
+}
+
+
+
   /* Search */
   const search = (searchInput: any) => {
-       if(searchInput){
-      const updatedList = productdata.filter((item:any)=>{
-         const searchResult =searchInput.some((value:any)=>{
-          return value.pro_name.include(searchInput)
-         })
-         return searchResult
+    if (searchInput) {
+     // debugger;
+      const updatedList = productdata.filter((item: any) => {
+          // debugger;
+          console.log(searchInput,"!!!")
+          return item.pro_name.includes(searchInput)
       })
       SetProductdata(updatedList)
-     }
-
+    }
   }
-
-
-  // if (searchInput) {
-  //   updatedList = updatedList.filter(
-  //     (item) =>
-  //       item.title.toLowerCase().search(searchInput.toLowerCase().trim()) !==
-  //       -1
-  //   );
-  // }
 
   return (
     <div>
-      <productContext.Provider value={{ productdata: productdata, filter,search }}>
+      <productContext.Provider value={{ productdata: productdata, filter, search,priceFilter }}>
         <div className='home'>
           {/* App Bar */}
           <TopBar />
@@ -85,5 +87,4 @@ const Home = (props: Props) => {
     </div>
   )
 }
-
 export default Home

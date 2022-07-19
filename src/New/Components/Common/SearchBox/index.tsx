@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import { Button } from '@mui/material';
 import productContext from '../../../../Context/productContext';
-
+import './Style.css'
 type Props = {}
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -50,24 +50,29 @@ const Search = styled('div')(({ theme }) => ({
   }));
 const SearchBox = (props: Props) => {
   const {productdata,search} = useContext(productContext)
-  const [searchInput, setSearchInput] = useState<any>([])
+  const [searchInput, setSearchInput] = useState<any>("")
   // debugger;
   const onChange =(e:any)=>{
     setSearchInput(e.target.value);
   }
   return (
+    <>
     <div>
        <Search >
             <SearchIconWrapper>
             <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              // onChange={search(searchInput )}
+               onChange={onChange}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
     </div>
+       <div className='button'>
+       <Button variant="contained" onClick={()=>search(searchInput)}>Filter</Button>
+    </div>
+    </>
   )
 }
 export default SearchBox

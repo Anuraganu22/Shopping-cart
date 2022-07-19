@@ -8,8 +8,7 @@ const List = (props: Props) => {
     const {productdata} =useContext(productContext)
   return (
     <div className='list-wrap'> 
-            <ListItem/>
-      
+      <ListItem/>
     </div>
   )
 }
