@@ -17,9 +17,7 @@ const Filter = (props: Props) => {
       <div className='slider-part'>
         <Sliders/>
         </div>
-        <div className='filterbutton'>
-        <Button variant="contained" >Filter</Button>
-        </div>
+     
         
     </div>
     </>

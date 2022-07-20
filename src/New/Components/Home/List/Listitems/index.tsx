@@ -27,20 +27,18 @@ const ListItem = (props: Props) => {
                 <Typography variant="body2" color="text.secondary">
                   Lizards are a widespread group of squamate reptiles, with over 6,000 
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                <h6></h6>Brand:{item.pro_Brand}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                <h6></h6>price:{item.pro_price}/-₹
-                </Typography>
+                <div className='brand'>
+                 {item.pro_Brand}
+                </div>
+                <div className='price'>
+                {item.pro_price}/-₹
+                </div>
               </CardContent>
             </CardActionArea>
           </Card>
         })
         }
-      
     </>
   )
 }
-
 export default ListItem

@@ -4,3 +4,20 @@
     grid-gap: 2rem;
     margin-top: 10rem;
   }
+ .price
+{
+  background: yellow;
+  position:absolute;
+  font-size: 1.7em;
+  top:7.5rem;
+  right: 13px;
+} 
+.brand
+{
+
+  background:yellow;
+  position:absolute;
+  font-size:1.5em;
+  top:.5rem;
+  left:.5rem;
+} 

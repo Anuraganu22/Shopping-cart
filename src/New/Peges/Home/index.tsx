@@ -41,18 +41,14 @@ const Home = (props: Props) => {
 /* price filter */
 
 
-const priceFilter =()=>{
+const priceFilter =(maxLimit:number)=>{
 
-const minPrice=[0]
-const maxPrice=[1]
 const pricefilter = productdata.filter((item:any)=>{
- return item.pro_price >= minPrice && item.pro_price <= maxPrice
+ return  item.pro_price <= maxLimit
 })
 SetProductdata(pricefilter)
+
 }
-
-
-
   /* Search */
   const search = (searchInput: any) => {
     if (searchInput) {

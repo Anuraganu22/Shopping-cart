@@ -14,12 +14,12 @@
     display: flex;
   }
   .home_panel-wrap {
-    background-color:aliceblue;
+    background-color:azure;
     flex-basis: 280px;
     padding: 1rem;
   }
   .home_list-wrap {
-    background-color: darkseagreen;
+    background-color:aliceblue;
     flex: 1;
     padding: 1rem;
   }
