@@ -8,22 +8,20 @@ type Props = {}
 
 const Filter = (props: Props) => {
   return (
-  <>
+    <>
       <div className='input-group'>
         <div>
-        <MultiSelect/>
+          <MultiSelect />
         </div>
-        <div className='label-text'>select your Price range..!</div>
-      <div className='slider-part'>
-        <Sliders/>
+        <div className='label-text'>select your Price range....!</div>
+        <div className='slider-part'>
+          <Sliders />
         </div>
-     
-        
-    </div>
+      </div>
     </>
-     
-  
-    
+
+
+
   )
 }
 
